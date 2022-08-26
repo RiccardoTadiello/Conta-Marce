@@ -39,7 +39,7 @@ void loop() {
 
   if(digitalRead(button1) && !BlockDecrement)//Decrementa Marcia Premuto (Bottone1)
   {
-    // BlockDecrement = true;
+    BlockDecrement = true;
     // BlockIncrement = false;
     
     //verifico che la marcia sia > 0 per decrementarla
@@ -59,7 +59,7 @@ void loop() {
   }
   else if(digitalRead(button2) && !BlockIncrement)//Incrementa Marcia Premuto (Bottone2)
   {
-    // BlockIncrement = true;
+    BlockIncrement = true;
     // BlockDecrement = false;
     
     //verifico che la marcia sia < 5 per incrementarla
@@ -75,7 +75,7 @@ void loop() {
       digitalWrite(ledPins[i], LOW);
       }
     }
-    delay(300);
+    //delay(300);
   }
   else if(digitalRead(folle))//bottone folle pazzo in culo premuto (folle)
   {
@@ -89,7 +89,7 @@ void loop() {
       digitalWrite(ledPins[j], LOW);
       }
     }
-    delay(300);
+    //delay(300);
   }
   
   //Quando il bottone "marcia giù" non è premuto, riabilito la lettura del bottone
@@ -102,81 +102,4 @@ void loop() {
   }
   
   
-  
-  
-
-
-
-
-
-
-
-  sw_read1 = digitalRead(button1);
-  sw_read2 = digitalRead(button2);
-  sw_read3 = digitalRead(folle);
-  if(sw_read1)
-  {
-    k--;
-    if(k<0){
-    k=0;
-    }
-    for(int j=0; j<7; j++){
-      if(combinazioni[k][j] == 1){
-        
-       digitalWrite(ledPins[j], HIGH);
-      }
-      else{
-       digitalWrite(ledPins[j], LOW);
-      }
-   }
-    delay(300);
-  }
-
-  if(sw_read2)
-  {
-    k++;
-    if(k>5){
-    k=5;
-    }
-    for(int j=0; j<7; j++){
-      if(combinazioni[k][j] == 1){
-        
-        digitalWrite(ledPins[j], HIGH);
-     }
-     else{
-      digitalWrite(ledPins[j], LOW);
-      }
-    }
-    delay(300);
-  }
-
-  if(sw_read3){
-
-    k=0; 
-    for(int j=0; j<7; j++){
-      if(combinazioni[knew][j] == 1){
-        
-        digitalWrite(ledPins[j], HIGH);
-      }
-     else{
-      digitalWrite(ledPins[j], LOW);
-      }
-    }
-    delay(300);
-
-  }
-
-
- /* for(int j=0; j<7; j++){
-      if(combinazioni[k][j] == 1){
-        
-        digitalWrite(ledPins[j], HIGH);
-     }
-     else{
-      digitalWrite(ledPins[j], LOW);
-     }
-   }
-    delay(150);*/
-
-
 }
